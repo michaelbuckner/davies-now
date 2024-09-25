@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="one_api_feature_provider">
+    <one_api_feature_provider action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <feature display_value="df745e5283f09650568a10347daad381">54e4169283f09650568a10347daad3b5</feature>
+        <feature_service display_value="OneExtendGenericProvider">5233278353111110c271ddeeff7b129b</feature_service>
+        <feature_service_factory><![CDATA[(function() { return new global.OneExtendGenericProvider(); })()]]></feature_service_factory>
+        <name>Davies Summarize provider</name>
+        <short_description>Auto Generated </short_description>
+        <sys_class_name>one_api_feature_provider</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-09-24 18:02:43</sys_created_on>
+        <sys_id>98e4969283f09650568a10347daad35f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Davies Summarize provider</sys_name>
+        <sys_package display_value="Davies" source="x_snc_davies">4a51deda83b09650568a10347daad3f8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Davies">4a51deda83b09650568a10347daad3f8</sys_scope>
+        <sys_update_name>one_api_feature_provider_98e4969283f09650568a10347daad35f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-09-24 18:02:43</sys_updated_on>
+        <type>FDIH Subflow</type>
+        <type_document display_value="Now LLM Integration">936e514a53b3b110f028ddeeff7b128c</type_document>
+    </one_api_feature_provider>
+</record_update>

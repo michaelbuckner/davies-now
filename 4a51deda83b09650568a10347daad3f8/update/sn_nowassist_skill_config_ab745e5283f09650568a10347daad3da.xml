@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_nowassist_skill_config">
+    <sn_nowassist_skill_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <in_product_active>false</in_product_active>
+        <in_product_roles/>
+        <is_template>false</is_template>
+        <name>Davies Summarize</name>
+        <nap_skill_applicability/>
+        <order>100</order>
+        <parent/>
+        <skill_family display_value="Davies Summarize">b518929683f09650568a10347daad37c</skill_family>
+        <skill_id>df749a5283f09650568a10347daad3d6</skill_id>
+        <skill_table>sys_one_extend_capability</skill_table>
+        <state>1</state>
+        <success_message/>
+        <sys_class_name>sn_nowassist_skill_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-09-24 18:01:02</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>ab745e5283f09650568a10347daad3da</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Davies Summarize</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Davies" source="x_snc_davies">4a51deda83b09650568a10347daad3f8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Davies">4a51deda83b09650568a10347daad3f8</sys_scope>
+        <sys_update_name>sn_nowassist_skill_config_ab745e5283f09650568a10347daad3da</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-09-24 18:18:05</sys_updated_on>
+    </sn_nowassist_skill_config>
+    <sys_translated_text action="delete_multiple" query="documentkey=ab745e5283f09650568a10347daad3da"/>
+</record_update>

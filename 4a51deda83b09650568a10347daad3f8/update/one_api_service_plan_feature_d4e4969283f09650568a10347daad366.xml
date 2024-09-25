@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="one_api_service_plan_feature">
+    <one_api_service_plan_feature action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applicability_condition/>
+        <applicability_condition_table/>
+        <applicability_script><![CDATA[(function(featureInput, previousFeatureOutputs) {  
+	/* customize condition logic here, return true or false */  
+	return true;
+  })(featureInput, previousFeatureOutputs);]]></applicability_script>
+        <applicability_type>script</applicability_type>
+        <delay_output_processing>false</delay_output_processing>
+        <depends_on/>
+        <depends_on_list/>
+        <error_policy>continue_service_plan_execution</error_policy>
+        <feature display_value="df745e5283f09650568a10347daad381">54e4169283f09650568a10347daad3b5</feature>
+        <return_request>false</return_request>
+        <service_plan display_value="___$y$t3m_bu1163r___-df745e5283f09650568a10347daad381-default">d0e4969283f09650568a10347daad363</service_plan>
+        <sys_class_name>one_api_service_plan_feature</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-09-24 18:02:43</sys_created_on>
+        <sys_id>d4e4969283f09650568a10347daad366</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>___$y$t3m_bu1163r___-df745e5283f09650568a10347daad381-default: df745e5283f09650568a10347daad381</sys_name>
+        <sys_package display_value="Davies" source="x_snc_davies">4a51deda83b09650568a10347daad3f8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Davies">4a51deda83b09650568a10347daad3f8</sys_scope>
+        <sys_update_name>one_api_service_plan_feature_d4e4969283f09650568a10347daad366</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-09-24 18:02:43</sys_updated_on>
+        <timeout_policy>continue_service_plan_execution</timeout_policy>
+        <timeout_sec>60</timeout_sec>
+    </one_api_service_plan_feature>
+</record_update>

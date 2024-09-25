@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_gen_ai_feature_mapping">
+    <sys_gen_ai_feature_mapping action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <customer_updatable>true</customer_updatable>
+        <document>df749a5283f09650568a10347daad3d6</document>
+        <document_table>sys_one_extend_capability</document_table>
+        <feature_name>Davies Summarize</feature_name>
+        <licensable>true</licensable>
+        <skip_on_group_call>false</skip_on_group_call>
+        <sys_class_name>sys_gen_ai_feature_mapping</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-09-24 18:01:01</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>13745e5283f09650568a10347daad37b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Davies Summarize</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Davies" source="x_snc_davies">4a51deda83b09650568a10347daad3f8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Davies">4a51deda83b09650568a10347daad3f8</sys_scope>
+        <sys_update_name>sys_gen_ai_feature_mapping_13745e5283f09650568a10347daad37b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-09-24 18:01:01</sys_updated_on>
+    </sys_gen_ai_feature_mapping>
+</record_update>

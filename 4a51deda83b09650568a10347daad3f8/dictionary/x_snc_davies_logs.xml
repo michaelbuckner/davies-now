@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="4e715e1e83b09650568a10347daad3f4" label="Logs" max_length="40" name="x_snc_davies_logs" type="collection">
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Foo" max_length="40" name="foo" type="string"/>
+    </element>
+</database>

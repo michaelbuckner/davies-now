@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_one_extend_capability">
+    <sys_one_extend_capability action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <external>true</external>
+        <name>Davies Summarize</name>
+        <sys_class_name>sys_one_extend_capability</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-09-24 18:01:01</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>df749a5283f09650568a10347daad3d6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Davies Summarize</sys_name>
+        <sys_package display_value="Davies" source="x_snc_davies">4a51deda83b09650568a10347daad3f8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Davies">4a51deda83b09650568a10347daad3f8</sys_scope>
+        <sys_update_name>sys_one_extend_capability_df749a5283f09650568a10347daad3d6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-09-24 18:01:01</sys_updated_on>
+        <type>skill</type>
+    </sys_one_extend_capability>
+    <sys_translated_text action="delete_multiple" query="documentkey=df749a5283f09650568a10347daad3d6"/>
+</record_update>

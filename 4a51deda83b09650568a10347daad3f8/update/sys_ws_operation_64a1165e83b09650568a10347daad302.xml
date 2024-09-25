@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>CreateAndSummarize</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // Parse the incoming JSON body
+    var requestBody = request.body.data;
+
+    // Validate required fields
+    if (!requestBody.claimant || !requestBody.policy_number || !requestBody.claim_type) {
+        return response.setStatus(400).setBody({
+            error: "Missing required fields"
+        });
+    }
+
+    // Create a new CSM case record
+    var caseRecord = new GlideRecord('sn_customerservice_case');
+    caseRecord.initialize();
+
+    // Set the short description
+    caseRecord.setValue('short_description', 'Claim: ' + requestBody.claimant + ' - ' + requestBody.claim_type);
+
+    // Construct the detailed description to include all the additional fields
+    var detailedDescription = "Claimant: " + requestBody.claimant + "\n" +
+        "Policy Number: " + requestBody.policy_number + "\n" +
+        "Claim Type: " + requestBody.claim_type + "\n" +
+        "Description: " + (requestBody.description || '') + "\n" +
+        "Claim Amount: $" + (requestBody.amount || 0) + "\n" +
+        "Submission Date: " + (requestBody.submission_date || 'N/A') + "\n" +
+        "Adjuster: " + (requestBody.adjuster || 'N/A') + "\n" +
+        "Status: " + (requestBody.status || 'Pending');
+
+    caseRecord.setValue('description', detailedDescription);
+
+    // Set the submission date
+    if (requestBody.submission_date) {
+        caseRecord.setValue('opened_at', requestBody.submission_date);
+    }
+
+    // Map status to the state field (only if relevant status exists)
+    switch (requestBody.status.toLowerCase()) {
+        case 'pending':
+            caseRecord.setValue('state', 1); // New
+            break;
+        case 'approved':
+            caseRecord.setValue('state', 2); // In Progress
+            break;
+        case 'processed':
+            caseRecord.setValue('state', 3); // Closed
+            break;
+        default:
+            caseRecord.setValue('state', 1); // Default to New
+    }
+
+    // Insert the record into the database
+    var caseSysId = caseRecord.insert();
+
+    // After inserting the case, we will call Now Assist GenAI to summarize it
+    var inputsPayload = {};
+    inputsPayload['case'] = {
+        tableName: 'sn_customerservice_case',
+        sysId: caseSysId,
+        queryString: ''
+    };
+
+    var requestPayload = {
+        executionRequests: [{
+            payload: inputsPayload,
+            capabilityId: 'df749a5283f09650568a10347daad3d6', // GenAI capability ID
+            meta: {
+                skillConfigId: 'ab745e5283f09650568a10347daad3da' // GenAI skill config ID
+            }
+        }],
+        mode: 'sync'
+    };
+
+    var output = sn_one_extend.OneExtendUtil.execute(requestPayload)['capabilities'][requestPayload.executionRequests[0].capabilityId]['response'];
+    var genaiResponse = JSON.parse(output).model_output;
+
+    var rsp = {
+        success: true,
+        sys_id: caseSysId,
+        summary: genaiResponse
+    };
+
+    response.setStatus(201);
+    response.setBody({
+        success: true,
+        sys_id: caseSysId,
+        summary: genaiResponse
+    });
+
+    gs.info("mbuckner logging: \n" + rsp.summary);
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_snc_davies/create_and_summarize_case/createandsummarize</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/createandsummarize</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-09-24 17:48:59</sys_created_on>
+        <sys_id>64a1165e83b09650568a10347daad302</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>CreateAndSummarize</sys_name>
+        <sys_package display_value="Davies" source="x_snc_davies">4a51deda83b09650568a10347daad3f8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Davies">4a51deda83b09650568a10347daad3f8</sys_scope>
+        <sys_update_name>sys_ws_operation_64a1165e83b09650568a10347daad302</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-09-24 18:49:38</sys_updated_on>
+        <web_service_definition display_value="Create and Summarize Case">b491525e83b09650568a10347daad3ff</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>64a1165e83b09650568a10347daad302</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-09-24 17:48:59</sys_created_on>
+        <sys_id>d3b1da1e83b09650568a10347daad3a1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-09-24 17:48:59</sys_updated_on>
+        <table>sys_ws_operation</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
